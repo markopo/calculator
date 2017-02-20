@@ -29,6 +29,13 @@ class CalculatorModel {
     }
     
     func MultiPlication(sum:Int, number:Int) -> Int {
-        return sum == 0 ? number : sum * number
+        
+        if sum == 0 {
+            return number
+        }
+        else {
+            let res = Int.multiplyWithOverflow(sum, number)
+            return res.overflow ? number : res.0
+        }
     }
 }
